@@ -7,7 +7,7 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>
         {% block title %}
-        {% endblock %}
+        {% endblock title %}
     </title>
 </head>
 <body>
@@ -16,8 +16,15 @@
         <div class="col-8">
             <h1 class="mt-2">Account Ledger</h1>
             <hr class="mt-0 mb-4">
+
+            {% if alert_flag %}
+                {% block alert %}
+                {% endblock alert %}
+            {% endif %}
+
             {% block content %}
-            {% endblock %}
+            {% endblock content %}
+
         </div>
     </div>
 </div>

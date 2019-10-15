@@ -20,6 +20,12 @@
                 </div>
             {% endif %}
 
+            {% if success_flag %}
+                <div class="alert alert-success" role="alert">
+                    {{ success }}
+                </div>
+            {% endif %}
+
             {% block content %}
             {% endblock content %}
 

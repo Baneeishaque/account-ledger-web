@@ -10,7 +10,7 @@ flake8 = "*"
 bandit = "*"
 mypy = "*"
 pep8 = "*"
-prospector = "*"
+# prospector = "*"
 pylama = "*"
 
 [packages]

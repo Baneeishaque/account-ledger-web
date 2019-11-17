@@ -5,21 +5,23 @@ from django.views.generic import FormView
 from app.forms import LoginForm, UserAdditionForm
 from app.models import TLogin
 
-
 # TODO : Add Section logic
 
-class LoginFormView(FormView):
 
+class LoginFormView(FormView):
     def get(self, request, *args, **kwargs):
 
-        parameters = dict(form=LoginForm, template_name='app/login.html', title='Account Ledger : Authentication')
+        parameters = dict(form=LoginForm,
+                          template_name='app/login.html',
+                          title='Account Ledger : Authentication')
 
         if 'submit' not in request.GET:
             # return render_to_response('app/login.html', parameters)
             return render(request, 'app/login.html', parameters)
         else:
-            query_result = TLogin.objects.filter(username=request.GET['username']).filter(
-                passcode=request.GET['passcode'])
+            query_result = TLogin.objects.filter(
+                username=request.GET['username']).filter(
+                    passcode=request.GET['passcode'])
             if len(query_result) == 0:
                 parameters.update(error_flag=True, error='Error...')
                 return render(request, 'app/login.html', parameters)
@@ -41,15 +43,25 @@ class AddUserFormView(FormView):
         # TODO : Extend Layout Files
         # TODO : Keep Inputs On Error
 
-        api_endpoint = "http://adgarage.co/wp-production/account_ledger_server/http_API/insertUser.php"
-        api_response = requests.post(api_endpoint,
-                                     dict(username=request.POST['username'], passcode=request.POST['passcode']))
+        api_endpoint = "http://account-ledger-server.herokuapp.com/http_API/insertUser.php"
+        api_response = requests.post(
+            api_endpoint,
+            dict(username=request.POST['username'],
+                 passcode=request.POST['passcode']))
         api_response = api_response.json()
         if api_response['status'] == '1':
-            return render(request, 'app/login.html', dict(form=UserAdditionForm, template_name='app/login.html',
-                                                          title='Account Ledger : Add User', error_flag=True,
-                                                          error=api_response['error']))
+            return render(
+                request, 'app/login.html',
+                dict(form=UserAdditionForm,
+                     template_name='app/login.html',
+                     title='Account Ledger : Add User',
+                     error_flag=True,
+                     error=api_response['error']))
         elif api_response['status'] == '0':
-            return render(request, 'app/login.html', dict(form=UserAdditionForm, template_name='app/login.html',
-                                                          title='Account Ledger : Add User', success_flag=True,
-                                                          success='User Addition Success...'))
+            return render(
+                request, 'app/login.html',
+                dict(form=UserAdditionForm,
+                     template_name='app/login.html',
+                     title='Account Ledger : Add User',
+                     success_flag=True,
+                     success='User Addition Success...'))

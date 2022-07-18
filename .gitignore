@@ -134,9 +134,9 @@ dmypy.json
 .idea/**/contentModel.xml
 
 # Sensitive or high-churn files
-.idea/**/dataSources/
+#.idea/**/dataSources/
 .idea/**/dataSources.ids
-.idea/**/dataSources.local.xml
+#.idea/**/dataSources.local.xml
 .idea/**/sqlDataSources.xml
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
@@ -192,9 +192,9 @@ fabric.properties
 ### Intellij Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
-# *.iml
-# modules.xml
-# .idea/misc.xml
+*.iml
+modules.xml
+.idea/misc.xml
 # *.ipr
 
 # Sonarlint plugin

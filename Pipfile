@@ -21,6 +21,7 @@ gunicorn = "*"
 dj-database-url = "*"
 whitenoise = "*"
 psycopg2 = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.11"

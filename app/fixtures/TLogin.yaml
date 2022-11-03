@@ -1,0 +1,4 @@
+- model: app.TLogin
+  fields:
+    username: admin
+    passcode: admin

@@ -26,7 +26,7 @@ SECRET_KEY = 'ma9yoah$@9$nu+5#eg5x(u!x)&&3d41hjhexfn$-u!4)wueb)t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "account-ledger-web.herokuapp.com", "0.0.0.0"]
+ALLOWED_HOSTS = ["127.0.0.1", "account-ledger-web.herokuapp.com", "0.0.0.0", "localhost"]
 
 # Application definition
 

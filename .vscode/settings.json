@@ -1,5 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\Admin\\.virtualenvs\\account-ledger-web--BqMUobh\\Scripts\\python.exe",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "python.linting.flake8Enabled": false,
